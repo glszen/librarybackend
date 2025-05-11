@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/publishers")
+@RequestMapping("https://retired-vanda-glszen-ba299dbf.koyeb.app/api/v1/publishers")
 @RequiredArgsConstructor
 public class PublisherController {
 
