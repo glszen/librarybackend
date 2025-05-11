@@ -47,4 +47,3 @@ networks:
     name: app-network
     driver: bridge
 
-
