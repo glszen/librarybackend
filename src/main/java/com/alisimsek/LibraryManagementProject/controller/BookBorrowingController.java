@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("https://retired-vanda-glszen-ba299dbf.koyeb.app/api/v1/borrows")
+@RequestMapping("/api/v1/borrows")
 @RequiredArgsConstructor
 public class BookBorrowingController {
 

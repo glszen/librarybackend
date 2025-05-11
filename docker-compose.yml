@@ -8,9 +8,9 @@ services:
     depends_on:
       - db
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://dpg-d0f7lneuk2gs738j7rd0-a.oregon-postgres.render.com/library_postgres
-      SPRING_DATASOURCE_USERNAME: library_postgres_user
-      SPRING_DATASOURCE_PASSWORD: L8FRvQRX1Qug38dO6HI2cmZs5xVe2IUi
+      SPRING_DATASOURCE_URL: jdbc:postgresql://ep-wispy-frog-a2nn74ds.eu-central-1.pg.koyeb.app/koyebdb
+      SPRING_DATASOURCE_USERNAME: koyeb-adm
+      SPRING_DATASOURCE_PASSWORD: pg_P6cW5jEXJAtZ
     networks:
       - app-network
 
@@ -18,9 +18,9 @@ services:
     image: postgres:13
     container_name: db
     environment:
-      POSTGRES_USER: library_postgres_user
-      POSTGRES_PASSWORD: L8FRvQRX1Qug38dO6HI2cmZs5xVe2IUi
-      POSTGRES_DB: library_postgres
+      POSTGRES_USER: koyeb-adm
+      POSTGRES_PASSWORD: pg_P6cW5jEXJAtZ
+      POSTGRES_DB: koyebdb
     ports:
       - "5432:5432"
     networks:
@@ -38,7 +38,7 @@ services:
     ports:
       - "5173:5173"
     environment:
-      - VITE_BACKEND_URL=http://localhost:8080
+      - VITE_BACKEND_URL=http://retired-vanda-glszen-ba299dbf.koyeb.app
     networks:
       - app-network
 

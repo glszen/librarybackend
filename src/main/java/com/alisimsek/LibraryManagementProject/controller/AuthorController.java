@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("https://retired-vanda-glszen-ba299dbf.koyeb.app/api/v1/authors")
+@RequestMapping("/api/v1/authors")
 public class AuthorController {
 
     private final AuthorService authorService;
