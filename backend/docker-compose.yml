@@ -1,0 +1,50 @@
+services:
+  library-app:
+    build:
+      context: .
+    container_name: library-app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://dpg-d0f7lneuk2gs738j7rd0-a.oregon-postgres.render.com/library_postgres
+      SPRING_DATASOURCE_USERNAME: library_postgres_user
+      SPRING_DATASOURCE_PASSWORD: L8FRvQRX1Qug38dO6HI2cmZs5xVe2IUi
+    networks:
+      - app-network
+
+  db:
+    image: postgres:13
+    container_name: db
+    environment:
+      POSTGRES_USER: library_postgres_user
+      POSTGRES_PASSWORD: L8FRvQRX1Qug38dO6HI2cmZs5xVe2IUi
+      POSTGRES_DB: library_postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - app-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  frontend:
+    build:
+      context: ../frontend
+    container_name: frontend
+    ports:
+      - "5173:5173"
+    environment:
+      - VITE_BACKEND_URL=http://localhost:8080
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    name: app-network
+    driver: bridge
+
+
