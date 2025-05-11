@@ -10,7 +10,7 @@ public class WebConfig implements WebMvcConfigurer {
     @Override
     public void addCorsMappings(CorsRegistry registry) {
         registry.addMapping("/**") // Tüm endpoint'ler için CORS'u etkinleştir
-        .allowedOrigins("http://localhost:5174") // Frontend'in çalıştığı URL
+                .allowedOrigins("https://libraryfrontend1.netlify.app") // Frontend'in Netlify'deki URL'si
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS") // İzin verilen HTTP metodları
                 .allowedHeaders("*") // Tüm header'lara izin ver
                 .allowCredentials(true); // Kimlik bilgilerini (örneğin, cookie) destekle
